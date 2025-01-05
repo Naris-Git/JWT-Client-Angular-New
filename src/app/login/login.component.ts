@@ -26,11 +26,11 @@ constructor(private jwtclientService:JwtclientService,
       password: new FormControl('', [Validators.required])
     });
   }
-
+//  form validation
   loginProcess(){
     console.log("form validation", this.formGroup.valid);
 if(this.formGroup.valid){
- 
+
   this.jwtclientService.generateToken(this.formGroup.value)
   .subscribe((result)=>{
     console.log("result data", result);
