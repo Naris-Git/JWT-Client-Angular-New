@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { JwtclientService } from '../jwtclient.service';
 import { interval, Observable, switchMap } from 'rxjs';
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-security',
@@ -47,8 +50,9 @@ pageRefresh$:Observable<string> | undefined;
   public getUserDeatails(d: string | Object){
    let d1= this.service.welcome(d);
    d1.subscribe((val)=>{
-      this.finaldata=val;
-this.userdata=this.finaldata;
+      this.userdata=val;
+      console.log("main data :", this.finaldata);
+//this.userdata=JSON.parse(this.finaldata);
       console.log("userdata",this.userdata)
 
    })
